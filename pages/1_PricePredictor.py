@@ -39,7 +39,7 @@ balcony=st.selectbox('Number of Balconies',sorted(df['balcony'].unique().tolist(
 
 property_age = st.selectbox('Property Age',sorted(df['agePossession'].unique().tolist()))
 
-built_up_area = st.number_input('Built Up Area in sq/ft', min_value=500.0, value=500.0)
+built_up_area = st.number_input('Built Up Area in sq/ft', min_value=500.0, value=500.0,step=1.0)
 
 servant_room = float(st.selectbox('Servant Room',[0.0, 1.0]))
 
