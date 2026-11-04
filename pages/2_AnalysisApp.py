@@ -13,8 +13,8 @@ st.set_page_config(page_title="analysis of Gurgaon")
 st.title("Analysis")     
 
 
-new_df = pd.read_csv('datasets/data_visualization1.csv')
-wordcloud_df = pd.read_csv('datasets/wordcloud_of_features.csv')
+new_df = pd.read_csv('Datasets/data_visualization1.csv')
+wordcloud_df = pd.read_csv('Datasets/wordcloud_of_features.csv')
 
 #######################################
 

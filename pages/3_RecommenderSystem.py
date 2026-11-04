@@ -5,11 +5,22 @@ import numpy as np
 
 st.set_page_config(page_title="Recommend Appartments")
 
-location_df = pickle.load(open('datasets/location_distance.pkl','rb'))
+from pathlib import Path
 
-cosine_sim1 = pickle.load(open('datasets/cosine_sim1.pkl','rb'))
-cosine_sim2 = pickle.load(open('datasets/cosine_sim2.pkl','rb'))
-cosine_sim3 = pickle.load(open('datasets/cosine_sim3.pkl','rb'))
+BASE_DIR = Path(__file__).resolve().parent.parent
+DATA_DIR = BASE_DIR / "Datasets"
+
+with open(DATA_DIR / "location_distance.pkl", "rb") as file:
+    location_df = pickle.load(file)
+
+with open(DATA_DIR / "cosine_sim1.pkl", "rb") as file:
+    cosine_sim1 = pickle.load(file)
+
+with open(DATA_DIR / "cosine_sim2.pkl", "rb") as file:
+    cosine_sim2 = pickle.load(file)
+
+with open(DATA_DIR / "cosine_sim3.pkl", "rb") as file:
+    cosine_sim3 = pickle.load(file)
 
 
 def recommend_properties_with_scores(property_name, top_n=5):
