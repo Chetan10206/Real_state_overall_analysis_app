@@ -24,8 +24,8 @@ with open(DATA_DIR / "cosine_sim3.pkl", "rb") as file:
 
 
 def recommend_properties_with_scores(property_name, top_n=5):
-    cosine_sim_matrix = 0.5 * cosine_sim1 + 0.8 * cosine_sim2 + 1 * cosine_sim3
-    
+    cosine_sim_matrix = ( 0.5 * cosine_sim1 +0.8 * cosine_sim2 +1.0 * cosine_sim3) / 2.3
+        
 
     # Get the similarity scores for the property using its name as the index
     sim_scores = list(enumerate(cosine_sim_matrix[location_df.index.get_loc(property_name)]))
@@ -36,6 +36,7 @@ def recommend_properties_with_scores(property_name, top_n=5):
     # Get the indices and scores of the top_n most similar properties
     top_indices = [i[0] for i in sorted_scores[1:top_n + 1]]
     top_scores = [i[1] for i in sorted_scores[1:top_n + 1]]
+
 
     # Retrieve the names of the top properties using the indices
     top_properties = location_df.index[top_indices].tolist()
@@ -72,3 +73,8 @@ if st.button('Recommend'):
     recommendation_df = recommend_properties_with_scores(selected_appartment)
 
     st.dataframe(recommendation_df)
+
+
+    print(cosine_sim1.min(), cosine_sim1.max())
+print(cosine_sim2.min(), cosine_sim2.max())
+print(cosine_sim3.min(), cosine_sim3.max())
