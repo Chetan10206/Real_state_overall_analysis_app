@@ -10,3 +10,4 @@ st.write("Choose a tool to get started.")
 
 st.page_link("pages/1_PricePredictor.py")
 st.page_link("pages/2_AnalysisApp.py")
+st.page_link("pages/3_RecommenderSystem.py")
